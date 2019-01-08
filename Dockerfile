@@ -4,8 +4,8 @@ RUN mkdir /app
 
 WORKDIR /app
 
-ADD ./api/target/customers-api-1.0.0-SNAPSHOT.jar /app
+ADD ./api/target/track-player-api-1.0.0-SNAPSHOT.jar /app
 
 EXPOSE 8080 8443
 
-CMD java -jar customers-api-1.0.0-SNAPSHOT.jar
+CMD java -jar track-player-api-1.0.0-SNAPSHOT.jar

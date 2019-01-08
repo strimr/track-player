@@ -14,7 +14,7 @@ cache:
   - $HOME/.m2
 
 env:
-  - DOCKER_IMAGE=jmezna/rso-customers:0.13
+  - DOCKER_IMAGE=strimr/track-player
 
 script:
   - mvn clean package -U

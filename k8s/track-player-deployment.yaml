@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: track-player-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: track-player
+  template:
+    metadata:
+      labels:
+        app: track-player
+    spec:
+      containers:
+      - image: jmezna/rso-customers:0.13
+        name: track-player
+        env:
+          - name: KUMULUZEE_DISCOVERY_CLUSTER
+            value: gcloud
+          - name: KUMULUZEE_DISCOVERY_ETCD_HOSTS
+            value: http://etcd:2379
+          - name: KUMULUZEE_CONFIG_ETCD_HOSTS
+            value: http://etcd:2379
+          - name: KUMULUZEE_SERVER_BASEURL
+            value: http://35.240.79.227:8080
+
+        ports:
+        - containerPort: 8080
+          name: server
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: server
+          initialDelaySeconds: 20
+          periodSeconds: 3
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: track-player
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: server
+  selector:
+    app: track-player

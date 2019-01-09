@@ -82,7 +82,7 @@ public class TrackPlayerBean {
         if (appProperties.isExternalServicesEnabled() && trackDataBaseUrl.isPresent()) {
             try {
                 return httpClient
-                        .target(trackDataBaseUrl.get() + "v1/track-data/" + trackId)
+                        .target(trackDataBaseUrl.get() + "/v1/track-data/" + trackId)
                         .request().get(new GenericType<TrackData>() {
                         });
             } catch (WebApplicationException | ProcessingException e) {
@@ -106,7 +106,7 @@ public class TrackPlayerBean {
         if (appProperties.isExternalServicesEnabled() && trackMetadataBaseUrl.isPresent()) {
             try {
                 return httpClient
-                        .target(trackMetadataBaseUrl.get() + "v1/track-metadata/" + trackId)
+                        .target(trackMetadataBaseUrl.get() + "/v1/track-metadata/" + trackId)
                         .request().get(new GenericType<TrackMetadata>() {
                         });
             } catch (WebApplicationException | ProcessingException e) {

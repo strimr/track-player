@@ -68,6 +68,11 @@ public class TrackPlayerBean {
         if(trackMetadata != null) {
             trackBundle.setTrackMetadata(trackMetadata);
         }
+
+        if(trackMetadata != null && trackData != null){
+            return null;
+        }
+
         return trackBundle;
     }
 

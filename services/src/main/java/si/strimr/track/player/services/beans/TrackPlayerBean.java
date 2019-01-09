@@ -60,7 +60,8 @@ public class TrackPlayerBean {
         TrackBundle trackBundle = new TrackBundle();
 
         TrackData trackData = trackPlayerBean.getTrackData(trackId);
-        TrackMetadata trackMetadata = trackPlayerBean.getTrackMetadata(trackData.getTrackMetadataId());
+        System.out.print(trackData.getTrackMetadataId());
+        TrackMetadata trackMetadata = trackPlayerBean.getTrackMetadata(trackId);
 
         trackBundle.setTrackData(trackData);
         trackBundle.setTrackMetadata(trackMetadata);

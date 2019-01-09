@@ -30,8 +30,8 @@ public class TrackPlayerBean {
 
     private Logger log = Logger.getLogger(TrackPlayerBean.class.getName());
 
-    @Inject
-    private EntityManager em;
+//    @Inject
+//    private EntityManager em;
 
     @Inject
     private AppProperties appProperties;
@@ -120,20 +120,20 @@ public class TrackPlayerBean {
 
 
 
-    private void beginTx() {
-        if (!em.getTransaction().isActive())
-            em.getTransaction().begin();
-    }
-
-    private void commitTx() {
-        if (em.getTransaction().isActive())
-            em.getTransaction().commit();
-    }
-
-    private void rollbackTx() {
-        if (em.getTransaction().isActive())
-            em.getTransaction().rollback();
-    }
+//    private void beginTx() {
+//        if (!em.getTransaction().isActive())
+//            em.getTransaction().begin();
+//    }
+//
+//    private void commitTx() {
+//        if (em.getTransaction().isActive())
+//            em.getTransaction().commit();
+//    }
+//
+//    private void rollbackTx() {
+//        if (em.getTransaction().isActive())
+//            em.getTransaction().rollback();
+//    }
 
     public void loadOrder(Integer n) {
 

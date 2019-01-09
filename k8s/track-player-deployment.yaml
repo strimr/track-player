@@ -13,7 +13,7 @@ spec:
         app: track-player
     spec:
       containers:
-      - image: jmezna/rso-customers:0.13
+      - image: strimr/track-player
         name: track-player
         env:
           - name: KUMULUZEE_DISCOVERY_CLUSTER

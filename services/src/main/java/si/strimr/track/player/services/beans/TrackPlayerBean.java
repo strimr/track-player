@@ -42,11 +42,11 @@ public class TrackPlayerBean {
     private Client httpClient;
 
     @Inject
-    @DiscoverService("track-data")
+    @DiscoverService("rso-track-data")
     private Optional<String> trackDataBaseUrl;
 
     @Inject
-    @DiscoverService("track-metadata")
+    @DiscoverService("rso-track-metadata")
     private Optional<String> trackMetadataBaseUrl;
 
     @PostConstruct
@@ -67,10 +67,6 @@ public class TrackPlayerBean {
         }
         if(trackMetadata != null) {
             trackBundle.setTrackMetadata(trackMetadata);
-        }
-
-        if(trackMetadata != null && trackData != null){
-            return null;
         }
 
         return trackBundle;

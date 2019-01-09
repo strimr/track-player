@@ -60,7 +60,7 @@ public class TrackPlayerBean {
         TrackBundle trackBundle = new TrackBundle();
 
         TrackData trackData = trackPlayerBean.getTrackData(trackId);
-        System.out.print(trackData.getTrackMetadataId());
+        System.out.println(trackData.toString());
         TrackMetadata trackMetadata = trackPlayerBean.getTrackMetadata(trackId);
 
         trackBundle.setTrackData(trackData);
@@ -75,6 +75,8 @@ public class TrackPlayerBean {
     @Timeout(value = 2, unit = ChronoUnit.SECONDS)
     @Fallback(fallbackMethod = "getTrackDataFallback")
     public TrackData getTrackData(Integer trackId) {
+
+        System.out.println(trackDataBaseUrl.get() + "v1/track-data/" + trackId);
 
         if (appProperties.isExternalServicesEnabled() && trackDataBaseUrl.isPresent()) {
             try {
@@ -100,6 +102,8 @@ public class TrackPlayerBean {
     @Timeout(value = 2, unit = ChronoUnit.SECONDS)
     @Fallback(fallbackMethod = "getTrackMetadataFallback")
     public TrackMetadata getTrackMetadata(Integer trackId) {
+
+        System.out.println(trackMetadataBaseUrl.get() + "v1/track-metadata/" + trackId);
 
         if (appProperties.isExternalServicesEnabled() && trackMetadataBaseUrl.isPresent()) {
             try {

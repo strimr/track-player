@@ -1,6 +1,7 @@
 package si.strimr.track.player.api.v1.resources;
 
 import com.kumuluz.ee.logs.cdi.Log;
+import com.kumuluz.ee.logs.cdi.LogParams;
 import si.strimr.track.player.models.dtos.TrackData;
 import si.strimr.track.player.models.entities.TrackBundle;
 import si.strimr.track.player.services.beans.TrackPlayerBean;
@@ -13,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-@Log
+@Log(value = LogParams.METRICS, methodCall = true)
 @ApplicationScoped
 @Path("/track-player")
 @Produces(MediaType.APPLICATION_JSON)

@@ -10,10 +10,10 @@ kumuluzee:
 
   config:
     etcd:
-      hosts: http://192.168.99.100:2379
+      hosts: http://159.122.187.192:30774
   discovery:
     etcd:
-      hosts: http://192.168.99.100:2379
+      hosts: http://159.122.187.192:30774
   metrics:
     web-instrumentation:
     - name: track-player-endpoint

@@ -3,6 +3,7 @@ package si.strimr.track.player.api.v1.resources;
 import com.kumuluz.ee.logs.cdi.Log;
 import com.kumuluz.ee.logs.cdi.LogParams;
 import si.strimr.track.player.models.dtos.TrackData;
+import si.strimr.track.player.models.dtos.TrackMetadata;
 import si.strimr.track.player.models.entities.TrackBundle;
 import si.strimr.track.player.services.beans.TrackPlayerBean;
 
@@ -46,9 +47,6 @@ public class TrackPlayerResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
-
         return Response.status(Response.Status.OK).entity(trackBundle).build();
-
     }
-
 }

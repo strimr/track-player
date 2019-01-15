@@ -4,16 +4,22 @@ kumuluzee:
     name: dev
   version: 1.0.0
   server:
-    base-url: http://localhost:8080
+    base-url: http://track-player:8080
     http:
       port: 8080
 
+  health:
+    checks:
+      etcd-health-check:
+        connection-url: http://etcd:2379/health
+      http-health-check:
+        connection-url: http://track-metadata:8080/health
   config:
     etcd:
-      hosts: http://159.122.187.192:30774
+      hosts: http://etcd:2379
   discovery:
     etcd:
-      hosts: http://159.122.187.192:30774
+      hosts: http://etcd:2379
   metrics:
     web-instrumentation:
     - name: track-player-endpoint
